@@ -62,6 +62,16 @@ will print "PingPong".
   - Example Input: 16
   - Example Output: 16, PingPong, 14...
 
++ The program has input buttons that increase and return the font size on click.
+  - Example Input: little 1
+  - Example Output: big 1
+
++ The program has an "Insanity mode" button which toggles a class that adds really
+  horrible styling to many elements, and a button to remove this class.
+  - Example Input: click event
+  - Example Output: all headers are huge and purple
+
+
 
 ##### Licence
 

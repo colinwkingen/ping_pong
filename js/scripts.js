@@ -19,6 +19,7 @@ var processNumber = function(number) {
   } else if (number > 50000) {
     alert("Fine, I'll do a really big number. It's gonna take a couple seconds though.")
   }
+  
   var listStack = []
   for (i = number; i > 0; i -= 1) {
     if (i % 15 === 0) {
@@ -33,6 +34,7 @@ var processNumber = function(number) {
   };
   return listStack;
 };
+
 $(document).ready(function() {
   $("#ping").click(function() {
     $(".ping_toggle").toggleClass("ping");
@@ -53,7 +55,16 @@ $(document).ready(function() {
     $(".number_toggle").toggleClass("number");
   });
 });
-
+$(document).ready(function() {
+  $("#normalcy_mode").click(function() {
+    $("body, div, button, .main_header, .page-header").toggleClass("insanity_mode");
+  });
+});
+$(document).ready(function() {
+  $("#insanity_mode").click(function() {
+    $("body, div, button, .main_header, .page-header").addClass("insanity_mode");
+  });
+});
 $(document).ready(function() {
   $("form#ping_pong").submit(function(event) {
     event.preventDefault()
