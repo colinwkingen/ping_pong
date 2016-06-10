@@ -5,11 +5,17 @@ body {
 .hidden {
   display: none;
 }
+.all {
+  font-size: 5em;
+  font-variant: small-caps;
+  text-align: center;
+
+}
 .main_header {
   color: #F2F2F8;
 }
 
-.btn {
+.main_btn {
   padding: 10px;
   color: #F1F1F9;
   background-color: #666;
@@ -26,4 +32,10 @@ body {
 }
 .well {
   background-color: rgba(200, 200, 200, 0.5);
+}
+.ping,
+.pong,
+.pingpong,
+.number  {
+  font-size: 1.5em;
 }

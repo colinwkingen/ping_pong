@@ -22,25 +22,45 @@ var processNumber = function(number) {
   var listStack = []
   for (i = number; i > 0; i -= 1) {
     if (i % 15 === 0) {
-      listStack.push("<span class='all pingpong word'> PINGPONG </span>");
+      listStack.push("<span class='all pingpong word'> pingpong </span>");
     } else if (i % 3 === 0) {
-      listStack.push("<span class='all ping word'> PING </span>");
+      listStack.push("<span class='all ping word'> ping </span>");
     } else if (i % 5 === 0) {
-      listStack.push("<span class='all pong word'> PONG </span>");
+      listStack.push("<span class='all pong word'> pong </span>");
     } else {
       listStack.push("<span class='all number'> " + i + " </span>");
     };
   };
   return listStack;
 };
+$(document).ready(function() {
+  $("#ping").click(function() {
+    $("#content span").toggleClass("ping");
+  });
+});
+$(document).ready(function() {
+  $("#pong").click(function() {
+    $("#content span").toggleClass("pong");
+  });
+});
+$(document).ready(function() {
+  $("#pingpong").click(function() {
+    $("#content span").toggleClass("pingpong");
+  });
+});
+$(document).ready(function() {
+  $("#number").click(function() {
+    $("#content span").toggleClass("number");
+  });
+});
 
-$(document).ready(function(){
-  $("form").submit(function(event) {
+$(document).ready(function() {
+  $("form#ping_pong").submit(function(event) {
     event.preventDefault()
     var inputData = $("#userInput").val();
     var inputNumber = processInput(inputData);
     var finalOutput = processNumber(inputNumber);
     $("#content").removeClass("hidden");
-    $(".output ul").html(finalOutput);
+    $("#content").html(finalOutput);
   });
 });
