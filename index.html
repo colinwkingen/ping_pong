@@ -9,23 +9,27 @@
     <title>PINGPONGPINGPONGPINGPONG</title>
   </head>
   <body>
-    <h1 class="center-block page-header">Ping Pong</h1>
+    <div class="container">
+      <h1 class="center-block page-header main_header">Ping Pong</h1>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-offset-3 well">
           <form id="leapYear" action="index.html" method="post">
-            <div class="form-group">
-              <label>Input a number to play Ping Pong!</label>
-              <input id="userInput" type="text" name="name" value="">
-            </div>
-            <div class="well">
-              <button type="submit" name="button">Submit</button>
+            <div class="well row">
+              <div class="form-group col-md-8">
+                <label>Input a number to play Ping Pong!</label>
+                <input id="userInput" type="text" name="name" value="">
+              </div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-lg" name="button">Submit</button>
+              </div>
            </div>
           </form>
         </div>
       </div>
       <div class="container">
-        <div class="well output">
+        <div class="well output hidden">
           <ul>
           </ul>
         </div>
