@@ -40,6 +40,7 @@ $(document).ready(function(){
     var inputData = $("#userInput").val();
     var inputNumber = processInput(inputData);
     var finalOutput = processNumber(inputNumber);
+    $("#content").removeClass("hidden");
     $(".output ul").html(finalOutput);
   });
 });
