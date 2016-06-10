@@ -36,6 +36,12 @@ will print "PingPong".
   - Example Input: Potato
   - Example Output: "Potato is not a usable number!"
 
++ The program prints an error message at large numbers, and refuses very large ones..
+  - Example Input: 987209
+  - Example Output: "Ack"
+  - Example Input: 98722324309
+  - Example Output: "Nope"
+
 + The program prints valid numbers to the screen.
   - Example Input: 1
   - Example Output: "1"
