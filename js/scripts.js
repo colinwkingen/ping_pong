@@ -22,35 +22,35 @@ var processNumber = function(number) {
   var listStack = []
   for (i = number; i > 0; i -= 1) {
     if (i % 15 === 0) {
-      listStack.push("<span class='all pingpong word'> pingpong </span>");
+      listStack.push("<span class='all pingpong pingpong_toggle word'> pingpong </span>");
     } else if (i % 3 === 0) {
-      listStack.push("<span class='all ping word'> ping </span>");
+      listStack.push("<span class='all ping ping_toggle word'> ping </span>");
     } else if (i % 5 === 0) {
-      listStack.push("<span class='all pong word'> pong </span>");
+      listStack.push("<span class='all pong pong_toggle word'> pong </span>");
     } else {
-      listStack.push("<span class='all number'> " + i + " </span>");
+      listStack.push("<span class='all number number_toggle'> " + i + " </span>");
     };
   };
   return listStack;
 };
 $(document).ready(function() {
   $("#ping").click(function() {
-    $("#content span").toggleClass("ping");
+    $(".ping_toggle").toggleClass("ping");
   });
 });
 $(document).ready(function() {
   $("#pong").click(function() {
-    $("#content span").toggleClass("pong");
+    $(".pong_toggle").toggleClass("pong");
   });
 });
 $(document).ready(function() {
   $("#pingpong").click(function() {
-    $("#content span").toggleClass("pingpong");
+    $(".pingpong_toggle").toggleClass("pingpong");
   });
 });
 $(document).ready(function() {
   $("#number").click(function() {
-    $("#content span").toggleClass("number");
+    $(".number_toggle").toggleClass("number");
   });
 });
 
