@@ -19,7 +19,7 @@ var processNumber = function(number) {
 };
 var crunchDigits = function(number) {
   var listStack = []
-  for (i = number; i > 0; i -= 1) {
+  for (i = number; i >= 0; i -= 1) {
     if (i % 15 === 0) {
       listStack.push(15);
     } else if (i % 3 === 0) {
@@ -65,7 +65,7 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
   $("form#ping_pong").submit(function(event) {
-    event.preventDefault()
+    event.preventDefault();
     var inputData = $("#userInput").val();
     var inputNumber = processInput(inputData);
     var evaluatedNumber = processNumber(inputNumber);
@@ -74,22 +74,24 @@ $(document).ready(function() {
     } else if (evaluatedNumber > 10000) {
       finalOutput =  "<span class='all error word'> No. That number is too big. I won't. </span>";
     } else if (evaluatedNumber > 5000) {
-      alert("Fine, I'll do a really big number. It's gonna take a couple seconds though.")
+      alert("Fine, I'll do a really big number. It's gonna take a couple seconds though.");
       digits = crunchDigits(evaluatedNumber);
     } else if (evaluatedNumber <= 5000) {
       digits = crunchDigits(evaluatedNumber);
-      var listFinal = []
-      for (i = 1; i <=  digits.length; i += 1) {
-        if ( digits[i] === 15 ) {
-          listFinal.push("<span class='all pingpong pingpong_toggle word'> pingpong </span>");
-        } else if ( digits[i] === 3 ) {
+      var listFinal = [];
+      for (i = 1; i <= digits.length; i += 1) {
+        if ( digits[i] === 3 ) {
           listFinal.push("<span class='all ping ping_toggle word'> ping </span>");
         } else if ( digits[i] === 5 ) {
           listFinal.push("<span class='all pong pong_toggle word'> pong </span>");
+        } else if ( digits[i]  === 15 ) {
+          listFinal.push("<span class='all pingpong pingpong_toggle word'> pingpong </span>");
         } else {
           listFinal.push("<span class='all number number_toggle'> " + i + " </span>");
         };
       };
+      alert(digits[0]);
+      alert(listFinal[0]);
     };
     $("#content").removeClass("hidden");
     $("#content").html(listFinal);
