@@ -12,24 +12,22 @@ var processInput = function(input) {
 var processNumber = function(number) {
   if (isNumber === false ) {
     isNumber = true;
-    return "<span class='all error word'> Thats not a number! </span>"
+    return false;
+  } else {
+    return number;
   };
-  if (number > 100000) {
-    return "<span class='all error word'> No. That number is too big. I won't. </span>"
-  } else if (number > 50000) {
-    alert("Fine, I'll do a really big number. It's gonna take a couple seconds though.")
-  }
-  
+};
+var crunchDigits = function(number) {
   var listStack = []
   for (i = number; i > 0; i -= 1) {
     if (i % 15 === 0) {
-      listStack.push("<span class='all pingpong pingpong_toggle word'> pingpong </span>");
+      listStack.push(15);
     } else if (i % 3 === 0) {
-      listStack.push("<span class='all ping ping_toggle word'> ping </span>");
+      listStack.push(3);
     } else if (i % 5 === 0) {
-      listStack.push("<span class='all pong pong_toggle word'> pong </span>");
+      listStack.push(5);
     } else {
-      listStack.push("<span class='all number number_toggle'> " + i + " </span>");
+      listStack.push(i);
     };
   };
   return listStack;
@@ -70,8 +68,30 @@ $(document).ready(function() {
     event.preventDefault()
     var inputData = $("#userInput").val();
     var inputNumber = processInput(inputData);
-    var finalOutput = processNumber(inputNumber);
+    var evaluatedNumber = processNumber(inputNumber);
+    if (evaluatedNumber === false ) {
+      finalOutput =  "<span class='all error word'> No. Not a number. </span>";
+    } else if (evaluatedNumber > 10000) {
+      finalOutput =  "<span class='all error word'> No. That number is too big. I won't. </span>";
+    } else if (evaluatedNumber > 5000) {
+      alert("Fine, I'll do a really big number. It's gonna take a couple seconds though.")
+      digits = crunchDigits(evaluatedNumber);
+    } else if (evaluatedNumber <= 5000) {
+      digits = crunchDigits(evaluatedNumber);
+      var listFinal = []
+      for (i = 1; i <=  digits.length; i += 1) {
+        if ( digits[i] === 15 ) {
+          listFinal.push("<span class='all pingpong pingpong_toggle word'> pingpong </span>");
+        } else if ( digits[i] === 3 ) {
+          listFinal.push("<span class='all ping ping_toggle word'> ping </span>");
+        } else if ( digits[i] === 5 ) {
+          listFinal.push("<span class='all pong pong_toggle word'> pong </span>");
+        } else {
+          listFinal.push("<span class='all number number_toggle'> " + i + " </span>");
+        };
+      };
+    };
     $("#content").removeClass("hidden");
-    $("#content").html(finalOutput);
+    $("#content").html(listFinal);
   });
 });
